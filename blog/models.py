@@ -21,7 +21,7 @@ class Post(models.Model):
         DRAFT = _("draft")
         PUBLISHED = _("published")
 
-    title = models.CharField(verbose_name=_("title"))
+    title = models.CharField(verbose_name=_("title"), max_length=255)
     slug = models.SlugField(verbose_name=_("slug"), allow_unicode=True, null=False, unique_for_date='publish_time')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     lead = models.CharField(max_length=1024, verbose_name=_("lead"), null=True, blank=True)

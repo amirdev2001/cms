@@ -9,7 +9,7 @@ def main():
 
     # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cms.settings')
     env = os.environ.get('APP_ENV', 'development')
-    setting_path = 'cms.envs' + env
+    setting_path = 'cms.envs.' + env
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', setting_path)
 
     try:
