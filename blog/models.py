@@ -33,8 +33,11 @@ class Post(models.Model):
 
     status = models.CharField(verbose_name=_("status"), max_length=15,
                               choices=StatusChoices.choices, default=StatusChoices.DRAFT)
+    featured = models.BooleanField(default=False, verbose_name=_("featured"))
     publish_time = models.DateTimeField(verbose_name=_("publish time"), null=True, blank=True)
 
+    def __str__(self):
+        return self.title
     class Meta:
         verbose_name = _("post")
         verbose_name_plural = _("posts")
