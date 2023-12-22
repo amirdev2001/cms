@@ -22,6 +22,7 @@ class Post(models.Model):
         PUBLISHED = _("published")
 
     title = models.CharField(verbose_name=_("title"), max_length=255)
+    thumbnail = models.ImageField(verbose_name=_("thumb"), upload_to="posts/", null=True, blank=True)
     slug = models.SlugField(verbose_name=_("slug"), allow_unicode=True, null=False, unique_for_date='publish_time')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     lead = models.CharField(max_length=1024, verbose_name=_("lead"), null=True, blank=True)
